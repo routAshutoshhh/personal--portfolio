@@ -22,8 +22,8 @@ export default function Header() {
           <Image
             src="/avatar.png" // replace with your actual image path
             alt="Profile avatar"
-            width={32}
-            height={32}
+            width={36}
+            height={36}
             className="rounded-full"
           />
         </Link>
@@ -36,7 +36,7 @@ export default function Header() {
               href={link.href}
               className={`px-3 py-1 rounded-sm transition-colors ${
                 pathname === link.href
-                  ? "bg-gray-200 text-foreground"
+                  ? "bg-gray-200 dark:bg-muted text-foreground"
                   : "hover:text-foreground"
               }`}
             >

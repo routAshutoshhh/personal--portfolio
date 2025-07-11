@@ -4,7 +4,7 @@ import { SiLeetcode } from "react-icons/si";
 
 export default function Footer() {
   return (
-    <footer className="w-full flex flex-col items-center justify-center pt-2 pb-4 px-4 text-muted-foreground">
+    <footer className="w-full flex flex-col items-center justify-center pt-2 pb-4 px-4 text-gray-600 dark:text-muted-foreground">
       <div className="flex gap-10 mb-2">
         <a
           href="https://linkedin.com/in/ashutoshkrout"
