@@ -29,7 +29,7 @@ export default function Timeline() {
   return (
     <section className="flex flex-col sm:flex-row  py-10 ">
       <h2 className="text-xl font-semibold mb-6">Timeline</h2>
-      <div className="relative border-l border-gray-700 ml-14 pl-2 space-y-10">
+      <div className="relative border-l border-gray-700 ml-15 pl-2 space-y-10">
         {studyTimeline.map((item, index) => (
           <div key={index} className="relative">
             <span
