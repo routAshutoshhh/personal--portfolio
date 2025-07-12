@@ -1,6 +1,8 @@
 import React from "react";
 import Timeline from "@/components/ui-components/about-components/timeline";
 import Worktimeline from "@/components/ui-components/about-components/workTimeline";
+import { cn } from "@/lib/utils";
+import Hobbies from "@/components/ui-components/about-components/Hobbies";
 
 export const metadata = {
   title: "Ashutosh | About",
@@ -17,6 +19,7 @@ export default function About() {
         </div>
         <Worktimeline />
         <Timeline />
+        <Hobbies />
       </div>
     </>
   );

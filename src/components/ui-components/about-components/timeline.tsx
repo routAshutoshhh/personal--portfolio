@@ -27,14 +27,14 @@ const studyTimeline = [
 
 export default function Timeline() {
   return (
-    <section className="flex flex-col sm:flex-row  py-10">
+    <section className="flex flex-col sm:flex-row  py-10 ">
       <h2 className="text-xl font-semibold mb-6">Timeline</h2>
-      <div className="relative border-l border-gray-700 ml-2 pl-2 space-y-10">
+      <div className="relative border-l border-gray-700 ml-14 pl-2 space-y-10">
         {studyTimeline.map((item, index) => (
           <div key={index} className="relative">
             <span
               className={cn(
-                "absolute left-[-12px] top-1 w-2 h-2 rounded-full",
+                "absolute left-[-12px] top-1 w-2 h-2 rounded-full shadow shadow-white/100",
                 item.color
               )}
             />
@@ -48,7 +48,7 @@ export default function Timeline() {
                   <li>{item.description}</li>
                 </ul>
               </div>
-              <span className="text-sm text-muted-foreground whitespace-nowrap">
+              <span className="text-sm text-muted-foreground  justify-end whitespace-nowrap">
                 {item.date}
               </span>
             </div>

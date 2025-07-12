@@ -5,13 +5,15 @@ const workTimeLine = [
     title: "Acumensa Technologies Pvt Ltd",
     role: "Full Stack Developer Intern",
     description:
-      " worked on project creating fully manmagable messaging ui and handling states",
+      " worked on project creating fully functional and synced  messaging systems  and handling states",
     date: "May 2025- July 2025",
     color: "bg-orange-400",
   },
   {
     title: "Little Paws Care",
     role: "Corporate Connect Intern",
+    description:
+      " worked on connecting and maintaining relations with different NGOs to provide quick help to needy strays",
     date: "May 2024 - July 2024",
     color: "bg-blue-300",
   },
@@ -20,8 +22,8 @@ const workTimeLine = [
 export default function Worktimeline() {
   return (
     <section className="flex flex-col sm:flex-row  py-10">
-      <h2 className="text-xl font-semibold mb-6">Timeline</h2>
-      <div className="relative border-l border-gray-700 ml-2 pl-2 space-y-10">
+      <h2 className="text-xl font-semibold mb-6"> Corporate Timeline</h2>
+      <div className="relative border-l border-gray-700 ml-8 pl-2 space-y-10">
         {workTimeLine.map((item, index) => (
           <div key={index} className="relative">
             <span
@@ -40,7 +42,7 @@ export default function Worktimeline() {
                   <li>{item.description}</li>
                 </ul>
               </div>
-              <span className="text-sm text-muted-foreground whitespace-nowrap">
+              <span className="text-sm text-muted-foreground justify-end whitespace-nowrap">
                 {item.date}
               </span>
             </div>

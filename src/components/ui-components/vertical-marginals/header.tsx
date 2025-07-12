@@ -15,7 +15,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="w-full max-w-xl ">
+    <header className="w-full max-w-2xl ">
       <nav className="max-w-4xl mx-auto flex items-center justify-between px-4 py-4">
         {/* Avatar */}
         <Link href="/">

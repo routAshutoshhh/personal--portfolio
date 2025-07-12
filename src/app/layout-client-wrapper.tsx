@@ -14,7 +14,7 @@ export default function LayoutClientWrapper({
       <Header />
 
       {/* Main content area, centered and padded */}
-      <main className="w-full max-w-xl flex-grow px-2">{children}</main>
+      <main className="w-full max-w-2xl flex-grow px-2">{children}</main>
 
       {/* Footer at bottom */}
       <Footer />
