@@ -1,5 +1,3 @@
-import { cn } from "@/lib/utils";
-
 export default function Hobbies() {
   return (
     <section className="flex flex-col sm:flex-row py-10">

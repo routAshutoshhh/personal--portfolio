@@ -1,7 +1,6 @@
 import React from "react";
 import Timeline from "@/components/ui-components/about-components/timeline";
 import Worktimeline from "@/components/ui-components/about-components/workTimeline";
-import { cn } from "@/lib/utils";
 import Hobbies from "@/components/ui-components/about-components/Hobbies";
 
 export const metadata = {
@@ -12,8 +11,10 @@ export default function About() {
   return (
     <>
       <div className="container overflow-y-auto">
-        <h1 className=" text-3xl text-shadow-black font-medium">About</h1>
-        <div className="font-medium text-mute-foreground relative pt-2">
+        <h3 className=" text-4xl text-shadow-black font-bold tracking-tight">
+          About
+        </h3>
+        <div className="font-normal text-lg text-mute-foreground relative pt-2">
           {" "}
           योऽहम् .
         </div>

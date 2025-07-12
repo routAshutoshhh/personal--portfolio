@@ -34,9 +34,9 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={`px-3 py-1 rounded-sm transition-colors ${
+              className={`px-3 py-2 rounded-sm transition-colors ${
                 pathname === link.href
-                  ? "bg-gray-200 dark:bg-muted text-foreground"
+                  ? "bg-gray-200  dark:bg-muted text-foreground"
                   : "hover:text-foreground"
               }`}
             >
