@@ -1,5 +1,11 @@
 import React from "react";
 
 export default function Home() {
-  return <h1>hello welcome to my place</h1>;
+  return (
+    <div className="container max-w-3xl mx-auto mt-8">
+      <h3 className="text-4xl font-medium tracking-tight">
+        hello, Ashutosh here!
+      </h3>
+    </div>
+  );
 }

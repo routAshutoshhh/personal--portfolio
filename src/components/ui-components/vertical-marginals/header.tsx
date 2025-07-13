@@ -20,7 +20,7 @@ export default function Header() {
         {/* Avatar */}
         <Link href="/">
           <Image
-            src="/avatar.png" // replace with your actual image path
+            src="/avatar.png"
             alt="Profile avatar"
             width={36}
             height={36}
