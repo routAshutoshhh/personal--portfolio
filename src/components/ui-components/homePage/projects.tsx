@@ -48,7 +48,7 @@ const ProjectsSection = () => {
       <h2 className="text-lg sm:text-xl font-medium tracking-tight">
         Projects
       </h2>
-      <div className="ml-6 space-y-8">
+      <div className="ml-10 space-y-8">
         {projects.map((project) => (
           <div key={project.title} className="space-y-2">
             <h3 className="text-md font-medium">{project.title}</h3>

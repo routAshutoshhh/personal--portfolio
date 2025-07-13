@@ -3,6 +3,7 @@
 import React from "react";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import ProjectsSection from "@/components/ui-components/homePage/projects";
+import TechStack from "@/components/ui-components/homePage/techStack";
 
 export default function Home() {
   const [text] = useTypewriter({
@@ -20,11 +21,14 @@ export default function Home() {
         <Cursor />
       </h3>
       <div className="pt-4 text-gray-600 dark:text-gray-300 ">
-        your average Pizza lover and caffine addict human from India, trying to
-        barge into tech world.
+        your average Pizza lover and caffine addict software dev from India,
+        trying to barge into tech world.
       </div>
       <div className="mt-8">
         <ProjectsSection />
+      </div>
+      <div className="mt-8">
+        <TechStack />
       </div>
     </div>
   );
