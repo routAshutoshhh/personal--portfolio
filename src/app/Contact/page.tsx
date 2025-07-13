@@ -7,7 +7,7 @@ export const metadata = {
 export default function Contact() {
   return (
     <div className="max-w-3xl mx-auto mt-8">
-      <h3 className="text-4xl font-bold tracking-tight">Contact</h3>
+      <h3 className="text-3xl font-bold tracking-tight">Contact</h3>
       <p className="text-muted-foreground text-lg mt-1">Let&apos;s connect.</p>
       <p className="mt-4 text-sm text-muted-foreground">
         Connect with me through any of these platforms.
