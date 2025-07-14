@@ -4,7 +4,14 @@ import React from "react";
 
 const stack = {
   Languages: ["C++", "HTML", "JavaScript", "TypeScript", "Python"],
-  Frontend: ["ReactJs", "NextJs", "React-Redux", "Tailwind CSS", "Zustand"],
+  Frontend: [
+    "ReactJs",
+    "NextJs",
+    "React-Redux",
+    "Tailwind CSS",
+    "Zustand",
+    "motion",
+  ],
   Backend: ["NodeJs", "Express.Js"],
   Databases: ["MySQL", "MongoDB"],
   VersionControl: ["GIT/GIT-REMOTE", "Docker"],

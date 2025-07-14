@@ -4,7 +4,7 @@ import React from "react";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import ProjectsSection from "@/components/ui-components/homePage/projects";
 import TechStack from "@/components/ui-components/homePage/techStack";
-
+import BlogSection from "@/components/ui-components/homePage/blog";
 export default function Home() {
   const [text] = useTypewriter({
     words: ["Hello, Ashutosh here"],
@@ -23,6 +23,9 @@ export default function Home() {
       <div className="pt-4 text-gray-600 dark:text-gray-300 ">
         your average Pizza lover and caffine addict software dev from India,
         trying to barge into tech world.
+      </div>
+      <div className="mt-6">
+        <BlogSection />
       </div>
       <div className="mt-8">
         <ProjectsSection />
