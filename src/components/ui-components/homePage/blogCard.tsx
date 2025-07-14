@@ -1,12 +1,13 @@
 import { Card, CardContent } from "@/components/ui/card";
-import Image from "next/image";
+//import Image from "next/image";
 import Link from "next/link";
 
 export const BlogCard = ({ post }: { post: any }) => {
-  const imageSrc =
-    post.thumbnail && post.thumbnail !== ""
-      ? post.thumbnail
-      : "/fallback-image.jpg";
+  //for handling image source and adding a fallback image
+  //   const imageSrc =
+  //     post.thumbnail && post.thumbnail !== ""
+  //       ? post.thumbnail
+  //       : "/fallback-image.jpg";
 
   return (
     <Card className="hover:shadow-lg transition-shadow duration-300x ">
