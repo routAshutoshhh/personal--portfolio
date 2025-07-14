@@ -27,7 +27,7 @@ export default function BlogSection() {
   return (
     <div className="">
       <h1 className="text-lg sm:text-xl font-medium tracking-tight">
-        My Medium Blogs
+        Medium Blogs
       </h1>
       {loading ? (
         <p>Loading...</p>
