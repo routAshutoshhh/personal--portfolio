@@ -7,6 +7,7 @@ export default function BlogSection() {
   const [posts, setPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
+  //loading the medium blogs on the instant
   useEffect(() => {
     const fetchMediumPosts = async () => {
       try {

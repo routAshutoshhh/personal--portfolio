@@ -1,10 +1,15 @@
+"use client";
 import { FaEnvelope, FaInstagram, FaLinkedin, FaDiscord } from "react-icons/fa";
-
-export const metadata = {
-  title: "Ashutosh | Contact",
-};
+import { motion } from "framer-motion";
 
 export default function Contact() {
+  const hoverEffect = {
+    whileHover: {
+      scale: 1.05,
+      y: -1,
+    },
+  };
+
   return (
     <div className="max-w-3xl mx-auto mt-8">
       <h3 className="text-3xl font-bold tracking-tight">Contact</h3>
@@ -15,7 +20,10 @@ export default function Contact() {
 
       <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
         {/* Email */}
-        <div className="flex items-start gap-3 p-4 border border-muted-foreground/20 rounded-lg">
+        <motion.div
+          {...hoverEffect}
+          className="flex items-start gap-3 p-4 border border-muted-foreground/20 rounded-lg"
+        >
           <FaEnvelope className="w-5 h-5 mt-1 text-muted-foreground" />
           <div>
             <p className="font-medium text-sm">Email</p>
@@ -26,10 +34,13 @@ export default function Contact() {
               egoisticdev@gmail.com
             </a>
           </div>
-        </div>
+        </motion.div>
 
         {/* Instagram */}
-        <div className="flex items-start gap-3 p-4 border border-muted-foreground/20 rounded-lg">
+        <motion.div
+          {...hoverEffect}
+          className="flex items-start gap-3 p-4 border border-muted-foreground/20 rounded-lg"
+        >
           <FaInstagram className="w-5 h-5 mt-1 text-muted-foreground" />
           <div>
             <p className="font-medium text-sm">Instagram</p>
@@ -42,10 +53,13 @@ export default function Contact() {
               @geekgoes.gym
             </a>
           </div>
-        </div>
+        </motion.div>
 
         {/* LinkedIn */}
-        <div className="flex items-start gap-3 p-4 border border-muted-foreground/20 rounded-lg">
+        <motion.div
+          {...hoverEffect}
+          className="flex items-start gap-3 p-4 border border-muted-foreground/20 rounded-lg"
+        >
           <FaLinkedin className="w-5 h-5 mt-1 text-muted-foreground" />
           <div>
             <p className="font-medium text-sm">LinkedIn</p>
@@ -58,16 +72,19 @@ export default function Contact() {
               in/ashutoshkrout
             </a>
           </div>
-        </div>
+        </motion.div>
 
         {/* Discord */}
-        <div className="flex items-start gap-3 p-4 border border-muted-foreground/20 rounded-lg">
+        <motion.div
+          {...hoverEffect}
+          className="flex items-start gap-3 p-4 border border-muted-foreground/20 rounded-lg"
+        >
           <FaDiscord className="w-5 h-5 mt-1 text-muted-foreground" />
           <div>
             <p className="font-medium text-sm">Discord</p>
             <p className="text-muted-foreground text-sm">Join Server</p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
