@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import LayoutClientWrapper from "@/app/layout-client-wrapper";
+import PageTransitionProvider from "@/components/ui-components/page-transtion/page-transition";
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -29,7 +30,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${geistMono.variable} antialiased`}>
-        <LayoutClientWrapper>{children}</LayoutClientWrapper>
+        <PageTransitionProvider>
+          <LayoutClientWrapper>{children}</LayoutClientWrapper>
+        </PageTransitionProvider>
       </body>
     </html>
   );
