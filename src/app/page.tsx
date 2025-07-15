@@ -19,7 +19,7 @@ export default function Home() {
       },
     },
     other: {
-      scale: 0.9,
+      scale: 0.95,
       y: 0,
     },
   };
