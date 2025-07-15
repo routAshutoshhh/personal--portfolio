@@ -139,7 +139,14 @@ export default function Contact() {
 
           <div>
             <p className="font-medium text-sm">Discord</p>
-            <p className="text-muted-foreground text-sm">Join Server</p>
+            <a
+              href="https://discordapp.com/users/ashutosh8179"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground text-sm"
+            >
+              join Server
+            </a>
           </div>
         </motion.div>
       </div>

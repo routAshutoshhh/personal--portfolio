@@ -39,7 +39,7 @@ export default function Home() {
         <Cursor />
       </h3>
       <div className="pt-4 text-gray-600 dark:text-gray-300 ">
-        your average Pizza lover and caffeine addict software dev from India,
+        your average pizza lover and caffeine addict software dev from India,
         trying to barge into tech world.
       </div>
 
