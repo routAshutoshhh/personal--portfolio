@@ -2,7 +2,7 @@
 
 import React from "react";
 import { cn } from "@/lib/utils"; // Optional utility for conditional classNames
-//import { motion } from "motion/react";
+import { motion } from "motion/react";
 
 const projects = [
   {
@@ -19,6 +19,7 @@ const projects = [
       "codeMirror",
     ],
   },
+
   {
     title: "Todo web Application ",
     description:

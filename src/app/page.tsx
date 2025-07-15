@@ -5,7 +5,7 @@ import { useTypewriter, Cursor } from "react-simple-typewriter";
 import ProjectsSection from "@/components/ui-components/homePage/projects";
 import TechStack from "@/components/ui-components/homePage/techStack";
 import BlogSection from "@/components/ui-components/homePage/blog";
-import { motion, Transition } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 export default function Home() {
