@@ -8,6 +8,7 @@ const projects = [
     title: "CodeOmen",
     description:
       "A Coding platform  with user interface just like Leetcode to test your skills in  Data Structure and algo .",
+    link: "https://codeomen.vercel.app/",
     tech: [
       "Next.js ",
       "TypeScript",
@@ -23,6 +24,7 @@ const projects = [
     title: "Todo web Application ",
     description:
       "A todo web application which leverages local storage with simple user interface  to just say everyday task.",
+    link: " https://todo-app-ruddy-phi.vercel.app/",
     tech: ["React", "Context API", "JavaScript"],
   },
 ];
@@ -52,7 +54,14 @@ const ProjectsSection = () => {
       <div className="ml-10 space-y-8">
         {projects.map((project) => (
           <div key={project.title} className="space-y-2">
-            <h3 className="text-md font-medium">{project.title}</h3>
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className=" hover:underline"
+            >
+              <h3 className="text-md font-medium">{project.title}</h3>
+            </a>
             <p className="text-muted-foreground text-sm">
               {project.description}
             </p>
