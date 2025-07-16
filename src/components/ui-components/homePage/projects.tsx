@@ -58,7 +58,7 @@ const ProjectsSection = () => {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className=" hover:underline"
+              className=" hover:text-blue-300 dark:text-dark-700"
             >
               <h3 className="text-md font-medium">{project.title}</h3>
             </a>
