@@ -17,6 +17,7 @@ import { useModalStore } from "@/stores/modalStore"
 import {z} from "zod";
 import {BiMailSend} from "react-icons/bi";
 import { FcCancel } from "react-icons/fc";
+import axios from "axios";
 
 //work with zod validatation for schema
 //defining the shema first using zod
@@ -54,7 +55,8 @@ export function MailModal() {
   }
 
   //handling the form submission - a form event handler
-  const handleSubmit = (e: React.FormEvent) =>{
+  const handleSubmit = async(e: React.FormEvent) =>{
+    console.log("buttton clicked")
     e.preventDefault();
 
     //validating the form data using the schema we defined earlier
@@ -71,12 +73,28 @@ export function MailModal() {
             const key = err.path[0] as keyof  emailSchemaType;
             feildErrors[key] = err.message; //setting the error message
         });
+
         setErrors(feildErrors);
         return;
     }
 
     //if validation passed we neeed to set the errror empty
     setErrors({});
+    //adding the api call to send the message 
+
+    try{
+        const res  =await axios.post("/api/mail", formData);
+        console.log(
+            "Response from the server: ", res.data
+        )
+        if(res.status != 200){
+            throw new Error("Failed to send Email");
+        }
+
+        alert("email sent successfully")
+    }catch(err){
+        console.error(err);
+    }
     closeModal(); // after the submission is done we can may be close the modal
   }
 
@@ -89,37 +107,64 @@ export function MailModal() {
             Make changes to your profile here. Click save when you&apos;re done.
           </DialogDescription> */}
         </DialogHeader>
-
-        <div className="grid gap-4">
-          <div className="grid gap-3">
-            <Label htmlFor="name">Name</Label>
-            <Input id="name" name="name" value ={formData.name} onChange ={handleChange} placeholder ="Your full Name" />
-          </div>
-          <div className="grid gap-3">
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" value ={formData.email} onChange ={handleChange} placeholder ="Your email address" />
-          </div>
-          <div className="grid gap-3">
-            <Label htmlFor="subject">Subject</Label>
-            <Input id="subject" value ={formData.subject} onChange ={handleChange}  />
-          </div>
-          <div className="grid gap-3">
-            <Label htmlFor="content">Message</Label>
-            <textarea id="content" value ={formData.message} onChange = {handleChange} placeholder = "Type your message here"/>
-          </div>
+            
+    <form onSubmit={handleSubmit}>
+      <div className="grid gap-4">
+        <div className="grid gap-3">
+          <Label htmlFor="name">Name</Label>
+          <Input
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Your full Name"
+          />
         </div>
+        <div className="grid gap-3">
+          <Label htmlFor="email">Email</Label>
+          <Input
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Your email address"
+          />
+        </div>
+        <div className="grid gap-3">
+          <Label htmlFor="subject">Subject</Label>
+          <Input
+            id="subject"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="grid gap-3">
+          <Label htmlFor="content">Message</Label>
+          <textarea
+            id="content"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Type your message here"
+            className="min-h-[100px] rounded-md border px-3 py-2 text-sm shadow-sm" // if not styled, add Tailwind here
+          />
+        </div>
+      </div>
 
-        <DialogFooter>
-          <DialogClose asChild>
-            <Button variant="outline">
-                <FcCancel className="m-1" />
-            </Button>
-          </DialogClose>
-          <Button type="submit" onSubmit={handleSubmit}>
-            <BiMailSend className="mr-1" />
+      <DialogFooter className="mt-4">
+        <DialogClose asChild>
+          <Button variant="outline">
+            <FcCancel className="m-1" />
           </Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
-  );
+        </DialogClose>
+        <Button type="submit">
+          <BiMailSend className="mr-1" />
+          Send
+        </Button>
+      </DialogFooter>
+    </form>
+  </DialogContent>
+</Dialog>
+  )
 }
