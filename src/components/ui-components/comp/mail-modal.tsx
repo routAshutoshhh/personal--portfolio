@@ -31,8 +31,6 @@ const schemaMail = z.object({
 //defining the type for the schema for tyepscript 
 type emailSchemaType = z.infer<typeof schemaMail>;
 
-
-
 export function MailModal() {
   // Zustand store- using to manage the modal
   const { isOpen, closeModal } = useModalStore();
@@ -95,19 +93,19 @@ export function MailModal() {
         <div className="grid gap-4">
           <div className="grid gap-3">
             <Label htmlFor="name">Name</Label>
-            <Input id="name" name="name" placeholder ="Your full Name" />
+            <Input id="name" name="name" value ={formData.name} onChange ={handleChange} placeholder ="Your full Name" />
           </div>
           <div className="grid gap-3">
             <Label htmlFor="email">Email</Label>
-            <Input id="email"  placeholder ="Your email address" />
+            <Input id="email" value ={formData.email} onChange ={handleChange} placeholder ="Your email address" />
           </div>
           <div className="grid gap-3">
             <Label htmlFor="subject">Subject</Label>
-            <Input id="subject"  />
+            <Input id="subject" value ={formData.subject} onChange ={handleChange}  />
           </div>
           <div className="grid gap-3">
             <Label htmlFor="content">Message</Label>
-            <textarea id="content"  placeholder = "Type your message here"/>
+            <textarea id="content" value ={formData.message} onChange = {handleChange} placeholder = "Type your message here"/>
           </div>
         </div>
 
@@ -117,7 +115,7 @@ export function MailModal() {
                 <FcCancel className="m-1" />
             </Button>
           </DialogClose>
-          <Button type="submit">
+          <Button type="submit" onSubmit={handleSubmit}>
             <BiMailSend className="mr-1" />
           </Button>
         </DialogFooter>
