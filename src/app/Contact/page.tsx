@@ -36,8 +36,8 @@ export default function Contact() {
         Connect with me through any of these platforms.
       </p>
 
-      {/*injecting Modal Component */}
-      <MailModal/>
+     <MailModal/>  {/*injecting Modal Component */}
+     
 
       <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
         {/* Email */}
