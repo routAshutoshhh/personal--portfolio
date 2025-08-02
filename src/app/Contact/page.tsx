@@ -2,9 +2,14 @@
 import { useState } from "react";
 import { FaEnvelope, FaInstagram, FaLinkedin, FaDiscord } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { MailModal}  from "@/components/ui-components/comp/mail-modal";
+import { useModalStore } from "@/stores/modalStore";
+
 
 export default function Contact() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const {openModal} = useModalStore();
+
 
   //to handle hover on cards
   const hoverEffect = {
@@ -31,6 +36,9 @@ export default function Contact() {
         Connect with me through any of these platforms.
       </p>
 
+      {/*injecting Modal Component */}
+      <MailModal/>
+
       <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
         {/* Email */}
         <motion.div
@@ -38,6 +46,7 @@ export default function Contact() {
           onHoverEnd={() => setHoveredCard(null)}
           whileHover={hoverEffect.whileHover}
           transition={hoverEffect.transition}
+          onClick={openModal}
           className="flex items-start gap-3 p-4 border border-muted-foreground/20 rounded-lg"
         >
           <motion.div

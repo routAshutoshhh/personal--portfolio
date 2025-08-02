@@ -1,13 +1,12 @@
 "use client";
-
 import Header from "@/components/ui-components/vertical-marginals/header";
 import Footer from "@/components/ui-components/vertical-marginals/footer";
-
 export default function LayoutClientWrapper({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  
   return (
     <div className="flex flex-col min-h-screen items-center">
       {/* Header stays at the top */}
@@ -21,3 +20,4 @@ export default function LayoutClientWrapper({
     </div>
   );
 }
+ 

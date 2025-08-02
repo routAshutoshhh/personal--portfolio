@@ -1,9 +1,15 @@
 "use client";
 import { FaLinkedin, FaGithub, FaEnvelope, FaTwitter } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
-import { motion } from "framer-motion"; // ✅ correct import (not "motion/react")
+import { motion } from "framer-motion"; 
+import { MailModal } from "../comp/mail-modal";
+import { useModalStore } from "@/stores/modalStore";
 
 export default function Footer() {
+    //cusing the modal store to open the mail
+    const {openModal} = useModalStore();
+
+    //creating  a hover icon feature for the icons in the footer using framer-motion
   const iconHover = {
     whileHover: {
       scale: 1,
@@ -32,14 +38,14 @@ export default function Footer() {
           <FaGithub className="w-5 h-5 hover:text-primary transition-colors" />
         </motion.a>
 
-        <motion.a
-          href="mailto:egoisticdev@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
+        <MailModal/>  {/*injecting Modal Component */}
+
+        <motion.div
+          onClick={openModal}
           {...iconHover}
         >
           <FaEnvelope className="w-5 h-5 hover:text-primary transition-colors" />
-        </motion.a>
+        </motion.div>
 
         <motion.a
           href="https://x.com/kumar_rout66561"
