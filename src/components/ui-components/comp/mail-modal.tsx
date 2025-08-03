@@ -28,7 +28,7 @@ const schemaMail = z.object({
     name: z.string().min(1, "Name is required"),
     email: z.string().email("Invalid email address"),
     subject: z.string().optional(),
-    message: z.string().min(20, "mesaage  must be of atleast 20 characters"),
+    message: z.string().min(20, "message  must be of atleast 20 characters"),
    // attachment: z.instanceof(File).optional()
 });
 
@@ -51,13 +51,27 @@ export function MailModal() {
     message:""
   })
 
+  const validateField = (name: keyof emailSchemaType, value: string) => {
+  try {
+    schemaMail.shape[name].parse(value); // validate only this field
+    setErrors((prev) => ({ ...prev, [name]: "" })); // clear error if valid
+  } catch (err: any) {
+    setErrors((prev) => ({ ...prev, [name]: err.message })); // set error if invalid
+  }
+};
+
+
   //state for the form errors - todo:loook into this more deeply later
   const[errors , setErrors] = useState<Partial<Record<keyof emailSchemaType, string>>>({});
 
   //hamdling the changing  in the input - we neec to fire up a event handler to handle change 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>{
     const {name , value } = e.target;
+    const key = name as keyof emailSchemaType;
+
+
     setFormData((prev) => ({...prev , [name]:value}))
+    validateField(key, value); // validate the field on change
   }
 
   //handling the form submission - a form event handler
@@ -140,6 +154,7 @@ export function MailModal() {
             onChange={handleChange}
             placeholder="Your full Name"
           />
+          {errors.name && <p className="text-red-500 text-sm mt-1">*{errors.name}</p>}
         </div>
         <div className="grid gap-3">
           <Label htmlFor="email">Email</Label>
@@ -150,6 +165,7 @@ export function MailModal() {
             onChange={handleChange}
             placeholder="Your email address"
           />
+          {errors.email && <p className="text-red-500 text-sm mt-1">*{errors.email}</p>}
         </div>
         <div className="grid gap-3">
           <Label htmlFor="subject">Subject</Label>
@@ -159,6 +175,7 @@ export function MailModal() {
             value={formData.subject}
             onChange={handleChange}
           />
+          
         </div>
         <div className="grid gap-3">
           <Label htmlFor="content">Message</Label>
@@ -170,6 +187,7 @@ export function MailModal() {
             placeholder="Type your message here"
             className="min-h-[100px] rounded-md border px-3 py-2 text-sm shadow-sm" // if not styled, add Tailwind here
           />
+          {errors.message && <p className="text-red-500 text-sm mt-1">*{errors.message}</p>}
         </div>
       </div>
 
@@ -183,8 +201,7 @@ export function MailModal() {
             {mailLoader? (
                 <div className='flex items-center justify-center'>
                     <MoonLoader size={15} color={"#4583d5"}/>
-                </div>
-                
+                </div>  
                 ) : (
                     <>
                     <BiMailSend className="mr-1" />
