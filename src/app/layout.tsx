@@ -4,6 +4,9 @@ import "./globals.css";
 import LayoutClientWrapper from "@/app/layout-client-wrapper";
 import PageTransitionProvider from "@/components/ui-components/page-transtion/page-transition";
 
+//importing the toast first to make where it should look
+import { Toaster } from "react-hot-toast";
+
 const inter = Inter({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -31,7 +34,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${geistMono.variable} antialiased`}>
         <PageTransitionProvider>
-          <LayoutClientWrapper>{children}</LayoutClientWrapper>
+          <LayoutClientWrapper>
+            {/*a step-1(for displaying the toast notification ) - adding the toaster component above children in the layout.ts*/}
+            <Toaster position ="top-right"/>
+            {children}</LayoutClientWrapper>
         </PageTransitionProvider>
       </body>
     </html>

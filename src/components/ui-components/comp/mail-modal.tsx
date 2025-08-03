@@ -6,7 +6,6 @@ import {
   Dialog,
   DialogClose,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -18,6 +17,10 @@ import {z} from "zod";
 import {BiMailSend} from "react-icons/bi";
 import { FcCancel } from "react-icons/fc";
 import axios from "axios";
+import { toast } from 'react-hot-toast';
+import {MoonLoader} from "react-spinners"
+
+
 
 //work with zod validatation for schema
 //defining the shema first using zod
@@ -35,6 +38,9 @@ type emailSchemaType = z.infer<typeof schemaMail>;
 export function MailModal() {
   // Zustand store- using to manage the modal
   const { isOpen, closeModal } = useModalStore();
+
+  //state for the loading for the form submission
+  const [mailLoader , setMailLoader ] = useState<boolean>(false);
 
 
   //state for the form data
@@ -57,6 +63,7 @@ export function MailModal() {
   //handling the form submission - a form event handler
   const handleSubmit = async(e: React.FormEvent) =>{
     console.log("buttton clicked")
+    setMailLoader(true); //now sending the mail has starter
     e.preventDefault();
 
     //validating the form data using the schema we defined earlier
@@ -64,6 +71,7 @@ export function MailModal() {
 
     //validation failed
     if(!result.success){
+        
         const feildErrors: typeof errors = {};
         //iterating over the errors and setting them in the state
         const zodError = result.error;
@@ -75,6 +83,10 @@ export function MailModal() {
         });
 
         setErrors(feildErrors);
+
+        //if we have errors then we need to stop the loading
+        setMailLoader(false);
+        toast.error("please fill the form corrrectly ")
         return;
     }
 
@@ -84,17 +96,28 @@ export function MailModal() {
 
     try{
         const res  =await axios.post("/api/mail", formData);
-        console.log(
-            "Response from the server: ", res.data
-        )
+        console.log("Response from the server: ", res.data)
+
+        //if the response is anything else than 200 , its a fail for us
         if(res.status != 200){
+            toast.error("email send failed due to some error - please send a mail using gmail at the same email address");
             throw new Error("Failed to send Email");
         }
-
-        alert("email sent successfully")
+        //this is the success case
+        toast.success("Email sent successfully!");
+       // alert("email sent successfully")
+       //clearing the form data after the successful submisssion
+       setFormData({
+        name:"",
+        email:"",
+        subject:"",
+        message:""
+       })
     }catch(err){
+        toast.error("email send failed due to some error - please send a mail using gmail at the same email address");
         console.error(err);
     }
+    setMailLoader(false);
     closeModal(); // after the submission is done we can may be close the modal
   }
 
@@ -103,11 +126,9 @@ export function MailModal() {
       <DialogContent className="sm:max-w-[400px]">
         <DialogHeader>
           <DialogTitle>Email me!</DialogTitle>
-          {/* <DialogDescription>
-            Make changes to your profile here. Click save when you&apos;re done.
-          </DialogDescription> */}
         </DialogHeader>
-            
+
+        {/*putting everthing inside a form for submission */}    
     <form onSubmit={handleSubmit}>
       <div className="grid gap-4">
         <div className="grid gap-3">
@@ -159,8 +180,17 @@ export function MailModal() {
           </Button>
         </DialogClose>
         <Button type="submit">
-          <BiMailSend className="mr-1" />
-          Send
+            {mailLoader? (
+                <div className='flex items-center justify-center'>
+                    <MoonLoader size={15} color={"#4583d5"}/>
+                </div>
+                
+                ) : (
+                    <>
+                    <BiMailSend className="mr-1" />
+                    Send
+                    </>
+                )}
         </Button>
       </DialogFooter>
     </form>
