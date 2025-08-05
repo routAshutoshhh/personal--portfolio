@@ -39,6 +39,9 @@ export function MailModal() {
   // Zustand store- using to manage the modal
   const { isOpen, closeModal } = useModalStore();
 
+  //state for submitingt the form to be set as true when clicked the send button and false otherwise
+  const [isSubmitClicked  , setIsSubmitClicked] = useState<boolean>(false);
+
   //state for the loading for the form submission
   const [mailLoader , setMailLoader ] = useState<boolean>(false);
 
@@ -69,7 +72,7 @@ export function MailModal() {
     const {name , value } = e.target;
     const key = name as keyof emailSchemaType;
 
-
+    setIsSubmitClicked(false); // resetting the submit clicked to false
     setFormData((prev) => ({...prev , [name]:value}))
     validateField(key, value); // validate the field on change
   }
@@ -77,6 +80,7 @@ export function MailModal() {
   //handling the form submission - a form event handler
   const handleSubmit = async(e: React.FormEvent) =>{
     console.log("buttton clicked")
+    setIsSubmitClicked(true); //setting the submit clicked to true
     setMailLoader(true); //now sending the mail has starter
     e.preventDefault();
 
@@ -144,7 +148,7 @@ export function MailModal() {
 
         {/*putting everthing inside a form for submission */}    
     <form onSubmit={handleSubmit}>
-      <div className="grid gap-4">
+      <div className="grid gap-4 overflow-auto">
         <div className="grid gap-3">
           <Label htmlFor="name">Name</Label>
           <Input
@@ -154,7 +158,7 @@ export function MailModal() {
             onChange={handleChange}
             placeholder="Your full Name"
           />
-          {errors.name && <p className="text-red-500 text-sm mt-1">*{errors.name}</p>}
+          {(isSubmitClicked&&errors.name) && <p className="text-red-500 text-sm mt-1">*{errors.name}</p>}
         </div>
         <div className="grid gap-3">
           <Label htmlFor="email">Email</Label>
@@ -165,7 +169,7 @@ export function MailModal() {
             onChange={handleChange}
             placeholder="Your email address"
           />
-          {errors.email && <p className="text-red-500 text-sm mt-1">*{errors.email}</p>}
+          {(isSubmitClicked && errors.email) && <p className="text-red-500 text-sm mt-1">*{errors.email}</p>}
         </div>
         <div className="grid gap-3">
           <Label htmlFor="subject">Subject</Label>
@@ -187,7 +191,7 @@ export function MailModal() {
             placeholder="Type your message here"
             className="min-h-[100px] rounded-md border px-3 py-2 text-sm shadow-sm" // if not styled, add Tailwind here
           />
-          {errors.message && <p className="text-red-500 text-sm mt-1">*{errors.message}</p>}
+          {(isSubmitClicked && errors.message) && <p className="text-red-500 text-sm mt-1">*{errors.message}</p>}
         </div>
       </div>
 
