@@ -28,6 +28,10 @@ export async function POST(req: Request) {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
     },
+    secure: true,
+    tls: {
+      rejectUnauthorized: false,
+    },
   });
 
   //creating the  mail content - building the html which will be send to me
@@ -48,10 +52,8 @@ export async function POST(req: Request) {
   //sending the mail using the transporter and mailContent
 
   try {
-    await new Promise((resolve) => {
-      transporter.sendMail(mailContent);
-      return NextResponse.json({ message: "Email sent" }, { status: 200 });
-    });
+    await transporter.sendMail(mailContent);
+    return NextResponse.json({ message: "Email sent" }, { status: 200 });
   } catch (err) {
     console.error("Error sending email:", err);
     return NextResponse.json(
