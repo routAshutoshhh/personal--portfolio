@@ -21,7 +21,7 @@ export async function POST(req: Request) {
   if (!name || !email || !message)
     return new Response("Missing required fields", { status: 400 });
 
-  //creating a transporter f
+  //creating a transporter
   const transporter: Transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -48,8 +48,10 @@ export async function POST(req: Request) {
   //sending the mail using the transporter and mailContent
 
   try {
-    await transporter.sendMail(mailContent);
-    return NextResponse.json({ message: "Email sent" }, { status: 200 });
+    await new Promise((resolve) => {
+      transporter.sendMail(mailContent);
+      return NextResponse.json({ message: "Email sent" }, { status: 200 });
+    });
   } catch (err) {
     console.error("Error sending email:", err);
     return NextResponse.json(
