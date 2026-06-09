@@ -1,6 +1,23 @@
 import { cn } from "@/lib/utils";
+import { date } from "zod";
 
 const workTimeLine = [
+  {
+    title: "Globallogic Technologies Pvt Ltd",
+    role: "Associate Software Engineer",
+    description:
+      "Working on orchestrating AI solutions with the PLM platform using MCP server integration and doing backend development using C# and ASP.NET",
+    date: "April 2026- Present ",
+    color: "bg-green-400",
+  },
+  {
+    title: "Globallogic Technologies Pvt Ltd",
+    role: "Graduate Engineer Trainee",
+    description:
+    "Built AI and backend solutions while gaining hands-on expertise in .NET, Machine Learning, NLP, AI Agents, and Vector Databases.",
+    date: "Jan 2026- March 2026",
+    color: "bg-pink-400",
+  },
   {
     title: "Acumensa Technologies Pvt Ltd",
     role: "Full Stack Developer Intern",
