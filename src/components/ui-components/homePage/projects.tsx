@@ -7,16 +7,17 @@ const projects = [
   {
     title: "MeetMind - AI Meeting Intelligence Orchestrator",
     description:
-      "A Coding platform  with user interface just like Leetcode to test your skills in  Data Structure and algo .",
+      "AI Meeting Intelligence Platform with Multi-Agent Orchestration, RAG Memory, Real-Time Streaming & Enterprise Workflow Fluency.",
     link: "https://codeomen.vercel.app/",
     tech: [
       "Next.js ",
-      "TypeScript",
-      "Node.js",
-      "Express.js",
-      "Firestore",
-      "Firebase Authentication",
-      "codeMirror",
+      "JavaScript",
+      "FastAPI",
+      "CrewAI",
+      "RAG Memory",
+      "Vector DB",
+      "LangChain",
+      "FastMCP",
     ],
   },
   {
@@ -38,9 +39,9 @@ const projects = [
   {
     title: "Disease Prediction and Ayurvedic Formulation System",
     description:
-      "A todo web application which leverages local storage with simple user interface  to just say everyday task.",
+      "Machine Learning & NLP-Based Clinical Decision Support System for Ayurvedic Healthcare.",
     link: " https://todo-app-ruddy-phi.vercel.app/",
-    tech: ["React", "Context API", "JavaScript"],
+    tech: ["HTML", "CSS", "JavaScript", "Machine Learning", "NLP"],
   },
 ];
 
@@ -58,6 +59,17 @@ const techColors: Record<string, string> = {
   Firestore: "bg-blue-800",
   "Firebase Authentication": "bg-yellow-500",
   codeMirror: "bg-red-300",
+  "FastAPI": "bg-green-700",
+  "CrewAI": "bg-blue-600",
+  "RAG Memory": "bg-gray-700",
+  "Vector DB": "bg-emerald-700",
+  "LangChain": "bg-purple-600",
+  "FastMCP": "bg-cyan-600",
+  "Machine Learning": "bg-red-600",
+  "NLP": "bg-yellow-600",
+  "HTML": "bg-orange-500",
+  "CSS": "bg-blue-400",
+  
 };
 
 const ProjectsSection = () => {
