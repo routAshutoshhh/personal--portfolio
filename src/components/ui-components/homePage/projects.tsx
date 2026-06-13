@@ -5,6 +5,21 @@ import { cn } from "@/lib/utils"; // Optional utility for conditional classNames
 
 const projects = [
   {
+    title: "MeetMind - AI Meeting Intelligence Orchestrator",
+    description:
+      "A Coding platform  with user interface just like Leetcode to test your skills in  Data Structure and algo .",
+    link: "https://codeomen.vercel.app/",
+    tech: [
+      "Next.js ",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "Firestore",
+      "Firebase Authentication",
+      "codeMirror",
+    ],
+  },
+  {
     title: "CodeOmen",
     description:
       "A Coding platform  with user interface just like Leetcode to test your skills in  Data Structure and algo .",
@@ -21,7 +36,7 @@ const projects = [
   },
 
   {
-    title: "Todo web Application ",
+    title: "Disease Prediction and Ayurvedic Formulation System",
     description:
       "A todo web application which leverages local storage with simple user interface  to just say everyday task.",
     link: " https://todo-app-ruddy-phi.vercel.app/",
