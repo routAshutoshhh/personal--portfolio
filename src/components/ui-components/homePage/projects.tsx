@@ -40,7 +40,7 @@ const projects = [
     title: "Disease Prediction and Ayurvedic Formulation System",
     description:
       "Machine Learning & NLP-Based Clinical Decision Support System for Ayurvedic Healthcare.",
-    link: " https://todo-app-ruddy-phi.vercel.app/",
+    link: "https://github.com/routAshutoshhh/Ayurvedic-disease-prediction-system.git",
     tech: ["HTML", "CSS", "JavaScript", "Machine Learning", "NLP"],
   },
 ];

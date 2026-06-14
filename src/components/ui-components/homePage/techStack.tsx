@@ -3,39 +3,101 @@
 import React from "react";
 
 const stack = {
-  Languages: ["C++", "HTML", "JavaScript", "TypeScript", "Python"],
+  Languages: [
+    "C++",
+    "JavaScript",
+    "TypeScript",
+    "Python",
+    "C#",
+    "HTML",
+  ],
+
   Frontend: [
-    "ReactJs",
-    "NextJs",
+    "React.js",
+    "Next.js",
     "React-Redux",
     "Tailwind CSS",
     "Zustand",
-    "motion",
+    "Motion",
   ],
-  Backend: ["NodeJs", "Express.Js"],
-  Databases: ["MySQL", "MongoDB"],
-  VersionControl: ["GIT/GIT-REMOTE", "Docker"],
+
+  Backend: [
+    "Node.js",
+    "Express.js",
+    "Appwrite",
+    "JSON Web Token (JWT)",
+    "ASP.NET",
+  ],
+
+  Databases: [
+    "MySQL",
+    "MongoDB",
+    "PostgreSQL",
+    "Neo4j",
+  ],
+
+  VersionControlSystems: [
+    "Git",
+    "GitHub",
+    "Docker",
+  ],
+
+  AI: [
+    "RAG",
+    "AI Agents",
+    "LangChain",
+    "MCP",
+    "CrewAI",
+    "Vector Databases",
+  ],
 };
 
 // Optional color map per tech (adjust freely)
 const badgeColors: Record<string, string> = {
-  "C++": "bg-blue-700",
-  HTML: "bg-orange-500",
-  JavaScript: "bg-yellow-400 text-black",
-  TypeScript: "bg-blue-500",
-  Python: "bg-green-600",
-  ReactJs: "bg-cyan-500",
-  NextJs: "bg-gray-800",
-  "React-Redux": "bg-purple-600",
-  "Tailwind CSS": "bg-sky-400",
-  Zustand: "bg-orange-300 text-black",
-  NodeJs: "bg-green-500",
-  "Express.Js": "bg-zinc-700",
-  MySQL: "bg-blue-400",
-  MongoDB: "bg-emerald-500",
-  "GIT/GIT-REMOTE": "bg-red-300",
-  JIRA: "bg-indigo-500",
-  Docker: "bg-blue-600",
+  // Languages
+  "C++": "bg-[#00599C]",
+  HTML: "bg-[#E34F26]",
+  JavaScript: "bg-[#F7DF1E] text-black",
+  TypeScript: "bg-[#3178C6]",
+  Python: "bg-[#3776AB]",
+  "C#": "bg-[#512BD4]",
+
+  // Frontend
+  "React.js": "bg-[#61DAFB] text-black",
+  "Next.js": "bg-[#454545]",
+  "React-Redux": "bg-[#764ABC]",
+  "Tailwind CSS": "bg-[#06B6D4]",
+  Zustand: "bg-[#FFB86C] text-black",
+  Motion: "bg-[#FF0080]",
+
+  // Backend
+  "Node.js": "bg-[#339933]",
+  "Express.js": "bg-[#404D59]",
+  Appwrite: "bg-[#FD366E]",
+  "JSON Web Token (JWT)": "bg-[#D63AFF]",
+  "ASP.NET": "bg-[#512BD4]",
+
+  // Databases
+  MySQL: "bg-[#4479A1]",
+  MongoDB: "bg-[#47A248]",
+  PostgreSQL: "bg-[#336791]",
+  Neo4j: "bg-[#008CC1]",
+
+  // Version Control & DevOps
+  Git: "bg-[#F05032]",
+  GitHub: "bg-[#181717]",
+  Docker: "bg-[#2496ED]",
+
+  // AI & LLM Engineering
+  RAG: "bg-[#0F766E]",
+  "AI Agents": "bg-[#7C3AED]",
+  LangChain: "bg-[#1C3C3C]",
+  MCP: "bg-[#0891B2]",
+  CrewAI: "bg-[#4F46E5]",
+  "Vector Databases": "bg-[#059669]",
+
+  // Other
+  JIRA: "bg-[#0052CC]",
 };
 
 const TechStack = () => {
