@@ -8,7 +8,7 @@ const projects = [
     title: "MeetMind - AI Meeting Intelligence Orchestrator",
     description:
       "AI Meeting Intelligence Platform with Multi-Agent Orchestration, RAG Memory, Real-Time Streaming & Enterprise Workflow Fluency.",
-    link: "https://codeomen.vercel.app/",
+    link: "https://github.com/routAshutoshhh/Meet_Mind_Orchestrator.git",
     tech: [
       "Next.js ",
       "JavaScript",
